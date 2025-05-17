@@ -14,30 +14,24 @@ app.get('/swap', async (req, res) => {
   }
 
   try {
- const response = await axios.get('https://api.0x.org/swap/v2/quote', {
-  params: {
-    buyToken,
-    sellToken,
-    sellAmount,
-    feeRecipient: FEE_RECIPIENT,
-    buyTokenPercentageFee: FEE_PERCENTAGE
-  },
-headers: {
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
-  'Accept-Encoding': 'gzip',
-  'Accept': 'application/json',
-  '0x-api-key': 'fbc68c07-d4b3-41fc-b1f0-b94d9fb53491',
-}
-
-});
+    const response = await axios.get('https://api.0x.org/swap/v2/quote', {
+      params: {
+        buyToken,
+        sellToken,
+        sellAmount,
+        takerAddress: '0x0000000000000000000000000000000000000000',  // optional
+        feeRecipient: '0x3B0DD7756f71c9b0ca31b01C79c1B8a7e2B1b23b',
+        buyTokenPercentageFee: 0.001,
+      },
+      headers: {
+        '0x-api-key': 'fbc68c07-d4b3-41fc-b1f0-b94d9fb53491',
+        'Accept': 'application/json',
+        'User-Agent': 'SwapVerseBot/1.0',
+      }
+    });
 
     return res.json(response.data);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 });
-
-app.listen(PORT, () => {
-  console.log(`SwapVerse backend running on port ${PORT}`);
-});
-
