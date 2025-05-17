@@ -22,11 +22,11 @@ app.get('/swap', async (req, res) => {
     feeRecipient: FEE_RECIPIENT,
     buyTokenPercentageFee: FEE_PERCENTAGE
   },
-  headers: {
-    'User-Agent': 'SwapVerseBot/1.0',
-    'Accept-Encoding': 'gzip',
-    'Accept': 'application/json'
-  }
+headers: {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+  'Accept-Encoding': 'gzip',
+  'Accept': 'application/json'
+}
 });
 
     return res.json(response.data);
