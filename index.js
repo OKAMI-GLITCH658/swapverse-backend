@@ -19,9 +19,9 @@ app.get('/swap', async (req, res) => {
         buyToken,
         sellToken,
         sellAmount,
-        takerAddress: '0x0000000000000000000000000000000000000000',  // optional
+       takerAddress: '0x3B0DD7756f71c9b0ca31b01C79c1B8a7e2B1b23b',  // optional
         feeRecipient: '0x3B0DD7756f71c9b0ca31b01C79c1B8a7e2B1b23b',
-        buyTokenPercentageFee: 0.001,
+        buyTokenPercentageFee: 0.002,
       },
       headers: {
         '0x-api-key': 'fbc68c07-d4b3-41fc-b1f0-b94d9fb53491',
