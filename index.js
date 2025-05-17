@@ -14,18 +14,20 @@ app.get('/swap', async (req, res) => {
   }
 
   try {
-    const response = await axios.get('https://api.0x.org/swap/v1/quote', {
-      params: {
-        buyToken,
-        sellToken,
-        sellAmount,
-        feeRecipient: FEE_RECIPIENT,
-        buyTokenPercentageFee: FEE_PERCENTAGE
-      },
-      headers: {
-        'User-Agent': 'SwapVerseBot/1.0'
-      }
-    });
+  const response = await axios.get('https://api.0x.org/swap/v1/quote', {
+  params: {
+    buyToken,
+    sellToken,
+    sellAmount,
+    feeRecipient: FEE_RECIPIENT,
+    buyTokenPercentageFee: FEE_PERCENTAGE
+  },
+  headers: {
+    'User-Agent': 'SwapVerseBot/1.0',
+    'Accept-Encoding': 'gzip',
+    'Accept': 'application/json'
+  }
+});
 
     return res.json(response.data);
   } catch (error) {
@@ -36,3 +38,4 @@ app.get('/swap', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`SwapVerse backend running on port ${PORT}`);
 });
+
