@@ -14,7 +14,7 @@ app.get('/swap', async (req, res) => {
   }
 
   try {
-  const response = await axios.get('https://api.0x.org/swap/v1/quote', {
+ const response = await axios.get('https://api.0x.org/swap/v2/quote', {
   params: {
     buyToken,
     sellToken,
@@ -25,8 +25,10 @@ app.get('/swap', async (req, res) => {
 headers: {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
   'Accept-Encoding': 'gzip',
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  '0x-api-key': 'fbc68c07-d4b3-41fc-b1f0-b94d9fb53491',
 }
+
 });
 
     return res.json(response.data);
