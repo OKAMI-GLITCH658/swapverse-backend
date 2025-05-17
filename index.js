@@ -14,7 +14,7 @@ app.get('/swap', async (req, res) => {
   }
 
   try {
-    const response = await axios.get('https://api.0x.org/swap/v2/quote', {
+    const response = await axios.get('https://api.0x.org/swap/v2.1/quote', {
       params: {
         buyToken,
         sellToken,
